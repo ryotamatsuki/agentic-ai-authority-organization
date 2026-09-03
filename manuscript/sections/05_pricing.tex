@@ -1,0 +1,66 @@
+\section{Platform Pricing and Organizational Distortion}
+\label{sec:pricing}
+
+The previous section showed that the firm may rationally preserve human authority in order to protect future recovery capability. This section shows that platform pricing does more than affect whether AI is adopted. It also distorts the firm's internal allocation of authority relative to a technological benchmark, and this distortion is stronger in more agentic environments with longer execution horizons.
+
+The key observation is simple. The benchmark problem differs from the firm's private problem only in the price of access to AI. In the private problem, the firm pays the platform price $p$ per execution step. In the technological benchmark, the relevant cost is the underlying resource cost $r\le p$. Since the pricing wedge $p-r$ applies step by step, it lowers the marginal return to authority reallocation toward AI even when the underlying technology is unchanged.
+
+\subsection{The Distortion in Internal Authority Allocation}
+\label{subsec:pricing-distortion}
+
+Recall that conditional on adoption, the firm's private cutoff $s_P^\ast$ solves
+\[
+\Delta^P(s_P^\ast;\kappa,p)=\lambda \nu R \beta \rho'(H(s_P^\ast)).
+\]
+The technological benchmark chooses $s_T^\ast$ to satisfy
+\begin{equation}
+\label{eq:FOC-tech-pricing}
+\Delta^T(s_T^\ast;\kappa,r)=\lambda \nu R \beta \rho'(H(s_T^\ast)).
+\end{equation}
+The continuation term is the same in both problems. The only difference is the per-step pricing wedge embedded in $\Delta^P$ relative to $\Delta^T$.
+
+\begin{proposition}[Platform pricing distorts the internal allocation of authority]
+\label{prop:pricing-distortion}
+Suppose $p>r$ and that both the private problem and the technological benchmark admit interior solutions. Then
+\[
+s_P^\ast<s_T^\ast.
+\]
+
+Moreover, for every task $z\in[0,1]$,
+\[
+\Delta^T(z;\kappa,r)-\Delta^P(z;\kappa,p)=n(p-r),
+\]
+and for every delegated mass $s>0$,
+\[
+\Phi^T(s;\kappa,r)-\Phi^P(s;\kappa,p)=sn(p-r).
+\]
+Hence the pricing-induced distortion is larger in more agentic environments with longer execution horizons.
+\end{proposition}
+
+The logic is immediate. The pricing wedge shifts down the private marginal gain from delegation by exactly $n(p-r)$ for every task. Since the continuation term is identical across the two problems and the marginal gain from delegation is decreasing in task exceptionality, the benchmark zero crossing must lie to the right of the private one. The same wedge also scales linearly with the execution horizon $n$, so the distortion is stronger precisely when AI use is more multi-step and hence more agentic. Appendix~\ref{app:proofs} gives the formal derivation.
+
+Proposition~\ref{prop:pricing-distortion} is important because it identifies an \emph{organizational} distortion rather than a purely financial one. The platform's pricing policy does not simply alter the firm's total cost of using AI. It changes the firm's internal authority architecture by shifting tasks that would be technologically efficient to delegate back toward human authority.
+
+\subsection{A Remark on the Adoption Margin}
+\label{subsec:adoption-margin}
+
+The pricing wedge also affects the extensive margin of adoption. From \eqref{eq:SP}, adoption occurs if and only if
+\[
+\max_{s\in[0,1]} \Phi^P(s;\kappa,p)\ge F.
+\]
+Because the benchmark enjoys a uniformly higher gain from delegation, there exist parameter regions in which AI adoption is technologically efficient but privately unattractive.
+
+\begin{remark}
+\label{rem:adoption-margin}
+If $p>r$, then for every $s>0$,
+\[
+\Phi^T(s;\kappa,r)-\Phi^P(s;\kappa,p)=sn(p-r)>0.
+\]
+Therefore, whenever
+\[
+\max_{s\in[0,1]} \Phi^T(s;\kappa,r)\ge F>\max_{s\in[0,1]} \Phi^P(s;\kappa,p),
+\]
+the technological benchmark adopts AI while the private firm does not.
+\end{remark}
+
+Remark~\ref{rem:adoption-margin} complements Proposition~\ref{prop:pricing-distortion}. The proposition concerns the intensive margin: conditional on adoption, platform pricing leads the firm to delegate too little. The remark concerns the extensive margin: for sufficiently large fixed costs, platform pricing may prevent adoption altogether even when adoption would be efficient under the technological benchmark.
