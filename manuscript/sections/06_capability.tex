@@ -1,0 +1,43 @@
+\section{AI Capability and the Persistence of Human Authority}
+\label{sec:capability}
+
+The previous sections showed that the firm may rationally preserve human authority in order to protect future recovery capability, and that platform pricing distorts this choice relative to a technological benchmark. A natural question is whether continued improvement in AI capability eventually eliminates human authority altogether. This section shows that the answer is generally no. Better AI expands delegation, but it need not drive the optimal domain of human authority to zero.
+
+\subsection{Better AI and the Expansion of Delegation}
+\label{subsec:better-ai}
+
+An increase in $\kappa$ raises the success probability of AI on every task and therefore increases the normal-state gain from delegation. It is therefore natural to expect the firm to assign a broader set of tasks to the external platform. The next result establishes this comparative static and then sharpens it by showing that, under a transparent sufficient condition, a strictly positive domain of human authority survives uniformly over all admissible AI capability levels.
+
+\begin{proposition}[Better AI expands delegation, but positive human authority may persist uniformly]
+\label{prop:better-ai-not-full}
+Assume that the private problem admits an interior solution $s_P^\ast(\kappa)\in(0,1)$ for $\kappa$ in an interval $\mathcal{K}\subset(\alpha,1]$. Then:
+
+\begin{enumerate}
+\item $s_P^\ast(\kappa)$ is strictly increasing in $\kappa$.
+
+\item Suppose there exists $\varepsilon\in(0,1)$ such that
+\begin{equation}
+\label{eq:uniform-persistence-condition}
+\Delta^P(1-\varepsilon;1,p)
+<
+\lambda \nu R \beta \rho'(\bar H+\beta\varepsilon).
+\end{equation}
+Then
+\[
+s_P^\ast(\kappa)< 1-\varepsilon
+\qquad
+\text{for all } \kappa\in\mathcal{K}.
+\]
+Thus, a strictly positive share greater than $\varepsilon$ of tasks remains under human authority uniformly across all admissible AI capability levels.
+
+\item The sufficient condition in \eqref{eq:uniform-persistence-condition} becomes easier to satisfy as $\lambda$, $\nu$, or $R$ increase.
+\end{enumerate}
+\end{proposition}
+
+Part (1) is the natural comparative static: better AI expands the range of tasks delegated to the platform. Part (2) is stronger than the claim that full automation may fail. It shows that, under an economically interpretable sufficient condition, AI progress still leaves a uniformly positive domain of human authority. Part (3) clarifies when this is most likely to occur: precisely when contingencies are more important, external AI is more likely to be unusable in those contingencies, or successful recovery is more valuable. Appendix~\ref{app:proofs} provides the formal derivation.
+
+The intuition is straightforward. A higher $\kappa$ improves current execution and therefore pushes the firm toward more delegation. But that force operates only on the period-1 margin. It does not remove the period-2 value of retained internal recovery capability. As long as contingency-side value remains sufficiently large, the firm preserves a positive amount of human authority in order to sustain the capacity to intervene, override, and recover when the external platform cannot be fully relied upon.
+
+This result sharpens the economic meaning of the model. The relevant organizational question is not whether AI becomes ``good enough'' in a purely technical sense. Rather, it is whether improvements in current execution dominate the future value of internal recovery capability. Proposition~\ref{prop:better-ai-not-full} shows that the answer can be negative even in a strong sense: not only may full automation fail, but a strictly positive human authority share may survive uniformly over all admissible AI capability levels.
+
+Taken together, Propositions~\ref{prop:no-full-automation}, \ref{prop:pricing-distortion}, and \ref{prop:better-ai-not-full} imply that dependence on external agentic-AI platforms creates a persistent role for human authority inside the firm. Platform pricing distorts the private extent of delegation, and even absent such distortion, the firm may rationally preserve human control as an organizational buffer against contingencies.
