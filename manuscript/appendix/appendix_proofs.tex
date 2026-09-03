@@ -1,0 +1,305 @@
+\section{Proofs and Additional Derivations}
+\label{app:proofs}
+
+\subsection*{Proof of Proposition~\ref{prop:cutoff}}
+
+Recall that the firm's conditional objective is
+\[
+\Phi^P(s;\kappa,p)
+=
+\int_0^s \Delta^P(z;\kappa,p)\,dz
++
+\lambda \nu R \bigl[\rho(H(s))-\rho(H(0))\bigr].
+\]
+Differentiating with respect to $s$ yields
+\begin{equation}
+\label{eq:PhiP-prime-app}
+\frac{\partial \Phi^P(s;\kappa,p)}{\partial s}
+=
+\Delta^P(s;\kappa,p)-\lambda \nu R \beta \rho'(H(s)).
+\end{equation}
+Using \eqref{eq:DeltaP} and \eqref{eq:H},
+\[
+\frac{\partial \Delta^P(s;\kappa,p)}{\partial s}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}<0,
+\]
+because $L>0$, $n\ge 1$, $\alpha>0$, and $\kappa-\alpha s>0$ on $[0,1]$ by \eqref{eq:q}. Moreover,
+\[
+\frac{d}{ds}\!\left[-\lambda \nu R \beta \rho'(H(s))\right]
+=
+-\lambda \nu R \beta \rho''(H(s))H'(s)
+=
+\lambda \nu R \beta^2 \rho''(H(s))<0,
+\]
+since $H'(s)=-\beta$ and $\rho''(H)<0$ by \eqref{eq:rho-props}. Hence
+\begin{equation}
+\label{eq:PhiP-second-app}
+\frac{\partial^2 \Phi^P(s;\kappa,p)}{\partial s^2}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}
++
+\lambda \nu R \beta^2 \rho''(H(s))
+<0.
+\end{equation}
+Therefore $\Phi^P$ is strictly concave on $[0,1]$ and admits a unique maximizer $s_P^\ast$.
+
+If
+\[
+\Delta^P(0;\kappa,p)>\lambda \nu R \beta \rho'(H(0))
+\quad\text{and}\quad
+\Delta^P(1;\kappa,p)<\lambda \nu R \beta \rho'(H(1)),
+\]
+then \eqref{eq:PhiP-prime-app} is positive at $s=0$ and negative at $s=1$. Since \eqref{eq:PhiP-prime-app} is strictly decreasing by \eqref{eq:PhiP-second-app}, it crosses zero exactly once in $(0,1)$. Hence the unique maximizer is interior and satisfies
+\[
+\Delta^P(s_P^\ast;\kappa,p)=\lambda \nu R \beta \rho'(H(s_P^\ast)).
+\]
+This proves Proposition~\ref{prop:cutoff}.
+
+\subsection*{Proof of Proposition~\ref{prop:no-full-automation}}
+
+Let
+\[
+G^P(s)\equiv \Delta^P(s;\kappa,p)-\lambda \nu R \beta \rho'(H(s)).
+\]
+By the same argument used in the proof of Proposition~\ref{prop:cutoff}, the objective $\Phi^P(s;\kappa,p)$ is strictly concave, and
+\[
+\frac{d\Phi^P(s;\kappa,p)}{ds}=G^P(s).
+\]
+Moreover,
+\[
+\frac{dG^P(s)}{ds}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}
++
+\lambda \nu R \beta^2 \rho''(H(s))
+<0,
+\]
+because $\rho''(H(s))<0$. Hence $G^P(s)$ is strictly decreasing in $s$.
+
+To prove part (1), evaluate the derivative at full automation:
+\[
+G^P(1)=\Delta^P(1;\kappa,p)-\lambda \nu R \beta \rho'(H(1)).
+\]
+Since $H(1)=\bar H$, condition \eqref{eq:no-full-auto-boundary} is exactly
+\[
+G^P(1)<0.
+\]
+Because $\Phi^P$ is strictly concave, a negative derivative at the right boundary implies that the optimum cannot occur at $s=1$. Hence
+\[
+s_P^\ast<1.
+\]
+
+To prove part (2), condition \eqref{eq:hybrid-boundary} implies
+\[
+G^P(0)=\Delta^P(0;\kappa,p)-\lambda \nu R \beta \rho'(H(0))>0.
+\]
+Together with $G^P(1)<0$ from part (1), strict monotonicity of $G^P$ implies that there exists a unique zero in $(0,1)$. By strict concavity, that zero is the unique maximizer, so
+\[
+0<s_P^\ast<1.
+\]
+
+For part (3), the right-hand side of \eqref{eq:no-full-auto-boundary} is
+\[
+\lambda \nu R \beta \rho'(\bar H),
+\]
+which is strictly increasing in $\lambda$, $\nu$, $R$, and $\beta$, since $\rho'(\bar H)>0$. Hence the sufficient condition ruling out full automation becomes easier to satisfy as any of these parameters increases. This proves Proposition~\ref{prop:no-full-automation}.
+
+\subsection*{Proof of Proposition~\ref{prop:pricing-distortion}}
+
+Recall
+\[
+\Delta^P(z;\kappa,p)
+=
+c_H+b-pn-L+L(\kappa-\alpha z)^n
+\]
+and
+\[
+\Delta^T(z;\kappa,r)
+=
+c_H+b-rn-L+L(\kappa-\alpha z)^n.
+\]
+Hence, for every $z\in[0,1]$,
+\begin{equation}
+\label{eq:Delta-gap-app}
+\Delta^T(z;\kappa,r)-\Delta^P(z;\kappa,p)=n(p-r).
+\end{equation}
+If $p>r$, then \eqref{eq:Delta-gap-app} is strictly positive and increasing linearly in $n$.
+
+Define
+\[
+G^P(s)\equiv \Delta^P(s;\kappa,p)-\lambda \nu R \beta \rho'(H(s))
+\]
+and
+\[
+G^T(s)\equiv \Delta^T(s;\kappa,r)-\lambda \nu R \beta \rho'(H(s)).
+\]
+Interior solutions satisfy
+\[
+G^P(s_P^\ast)=0
+\qquad\text{and}\qquad
+G^T(s_T^\ast)=0.
+\]
+By \eqref{eq:Delta-gap-app},
+\begin{equation}
+\label{eq:G-gap-app}
+G^T(s)-G^P(s)=n(p-r)>0
+\qquad
+\text{for all } s\in[0,1].
+\end{equation}
+
+Next, both $G^P$ and $G^T$ are strictly decreasing in $s$. Indeed,
+\[
+\frac{d\Delta^P(s;\kappa,p)}{ds}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}<0,
+\]
+\[
+\frac{d\Delta^T(s;\kappa,r)}{ds}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}<0,
+\]
+and
+\[
+\frac{d}{ds}\!\left[-\lambda \nu R \beta \rho'(H(s))\right]
+=
+\lambda \nu R \beta^2 \rho''(H(s))<0.
+\]
+Therefore
+\[
+\frac{dG^P(s)}{ds}<0
+\qquad\text{and}\qquad
+\frac{dG^T(s)}{ds}<0.
+\]
+
+Since $G^T$ is a strict upward shift of $G^P$ by \eqref{eq:G-gap-app}, while both functions are strictly decreasing, the unique zero of $G^T$ must lie strictly to the right of the unique zero of $G^P$. Hence
+\[
+s_P^\ast<s_T^\ast.
+\]
+
+It remains to show the total-objective gap. Using \eqref{eq:PhiP} and \eqref{eq:PhiT},
+\[
+\Phi^T(s;\kappa,r)-\Phi^P(s;\kappa,p)
+=
+\int_0^s \bigl[\Delta^T(z;\kappa,r)-\Delta^P(z;\kappa,p)\bigr]dz,
+\]
+because the continuation term is identical in both problems. Substituting \eqref{eq:Delta-gap-app},
+\[
+\Phi^T(s;\kappa,r)-\Phi^P(s;\kappa,p)
+=
+\int_0^s n(p-r)dz
+=
+sn(p-r).
+\]
+Thus the pricing-induced distortion grows linearly with the execution horizon $n$. This proves Proposition~\ref{prop:pricing-distortion}.
+
+\subsection*{Derivation for Remark~\ref{rem:adoption-margin}}
+
+If $p>r$, then by the final line of the proof above,
+\[
+\Phi^T(s;\kappa,r)-\Phi^P(s;\kappa,p)=sn(p-r)>0
+\qquad
+\text{for all } s>0.
+\]
+Adoption in the private problem occurs if and only if
+\[
+\max_{s\in[0,1]} \Phi^P(s;\kappa,p)\ge F.
+\]
+Therefore, if
+\[
+\max_{s\in[0,1]} \Phi^T(s;\kappa,r)\ge F>\max_{s\in[0,1]} \Phi^P(s;\kappa,p),
+\]
+the technological benchmark adopts while the private firm does not. This establishes Remark~\ref{rem:adoption-margin}.
+
+\subsection*{Proof of Proposition~\ref{prop:better-ai-not-full}}
+
+For interior solutions, define
+\[
+G(s,\kappa)\equiv \Delta^P(s;\kappa,p)-\lambda \nu R \beta \rho'(H(s)).
+\]
+By Proposition~\ref{prop:cutoff}, the optimal cutoff $s_P^\ast(\kappa)$ is the unique solution to
+\begin{equation}
+\label{eq:G-zero-app}
+G(s_P^\ast(\kappa),\kappa)=0.
+\end{equation}
+
+To prove part (1), differentiate $G$ with respect to $\kappa$. Using \eqref{eq:DeltaP},
+\[
+\frac{\partial G(s,\kappa)}{\partial \kappa}
+=
+\frac{\partial \Delta^P(s;\kappa,p)}{\partial \kappa}
+=
+Ln(\kappa-\alpha s)^{n-1}>0.
+\]
+Next, differentiate $G$ with respect to $s$:
+\[
+\frac{\partial G(s,\kappa)}{\partial s}
+=
+\frac{\partial \Delta^P(s;\kappa,p)}{\partial s}
+-\lambda \nu R \beta \frac{d}{ds}\rho'(H(s)).
+\]
+Since
+\[
+\frac{\partial \Delta^P(s;\kappa,p)}{\partial s}
+=
+-Ln\alpha(\kappa-\alpha s)^{n-1}<0
+\]
+and
+\[
+-\lambda \nu R \beta \frac{d}{ds}\rho'(H(s))
+=
+-\lambda \nu R \beta \rho''(H(s))H'(s)
+=
+\lambda \nu R \beta^2 \rho''(H(s))<0,
+\]
+it follows that
+\[
+\frac{\partial G(s,\kappa)}{\partial s}<0.
+\]
+Therefore, by the implicit function theorem applied to \eqref{eq:G-zero-app},
+\[
+\frac{d s_P^\ast(\kappa)}{d\kappa}
+=
+-
+\frac{\partial G/\partial \kappa}{\partial G/\partial s}
+>0.
+\]
+This proves part (1).
+
+For part (2), suppose there exists $\varepsilon\in(0,1)$ such that
+\[
+\Delta^P(1-\varepsilon;1,p)
+<
+\lambda \nu R \beta \rho'(\bar H+\beta\varepsilon).
+\]
+Since $H(1-\varepsilon)=\bar H+\beta\varepsilon$, this is equivalent to
+\[
+G(1-\varepsilon,1)<0.
+\]
+Now $\Delta^P(s;\kappa,p)$ is increasing in $\kappa$, so for every $\kappa\in\mathcal{K}\subset(\alpha,1]$,
+\[
+\Delta^P(1-\varepsilon;\kappa,p)\le \Delta^P(1-\varepsilon;1,p).
+\]
+Therefore
+\[
+G(1-\varepsilon,\kappa)\le G(1-\varepsilon,1)<0
+\qquad
+\text{for all } \kappa\in\mathcal{K}.
+\]
+Because $G(s,\kappa)$ is strictly decreasing in $s$ and has a unique zero at $s=s_P^\ast(\kappa)$, the inequality
+\[
+G(1-\varepsilon,\kappa)<0
+\]
+implies
+\[
+s_P^\ast(\kappa)< 1-\varepsilon
+\qquad
+\text{for all } \kappa\in\mathcal{K}.
+\]
+Hence a strictly positive share greater than $\varepsilon$ of tasks remains under human authority uniformly over all admissible AI capability levels.
+
+For part (3), the right-hand side of \eqref{eq:uniform-persistence-condition} is
+\[
+\lambda \nu R \beta \rho'(\bar H+\beta\varepsilon),
+\]
+which is strictly increasing in $\lambda$, $\nu$, and $R$, since $\beta>0$ and $\rho'(\bar H+\beta\varepsilon)>0$. Hence the sufficient condition becomes easier to satisfy as any of these parameters increases. This proves Proposition~\ref{prop:better-ai-not-full}.
