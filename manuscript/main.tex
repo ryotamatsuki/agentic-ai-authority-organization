@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+
+% JITE-oriented manuscript settings
+\usepackage[a4paper,top=3.3cm,bottom=3.3cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\singlespacing
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[backend=biber,style=authoryear,natbib=true,sorting=nyt,maxbibnames=99,giveninits=true,uniquename=init,doi=false,isbn=false,url=false,eprint=false]{biblatex}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{url}
+
+\hypersetup{hidelinks}
+
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.35em}
+\setlist[enumerate]{itemsep=0.2em,topsep=0.3em}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\title{External Agentic-AI Platforms, Retained Human Recovery Capability, and the Allocation of Authority}
+\author{Ryota Matsuki\thanks{Independent Researcher, Matsuyama, Ehime, Japan. Corresponding author. E-mail: \href{mailto:ryota.matsuki@gmail.com}{ryota.matsuki@gmail.com}. ORCiD: \url{https://orcid.org/0009-0005-2329-531X}.}}
+\date{Submission date: March 17, 2026}
+
+\addbibresource{refs.bib}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper studies how firms allocate authority between internal human managers and external agentic-AI platforms. In a two-period model, delegation to AI increases current execution efficiency but reduces retained human recovery capability that becomes valuable when external AI is unavailable or unreliable. The analysis shows that optimal organization is hybrid, that full automation may be suboptimal even when AI dominates task by task, and that platform pricing distorts both delegation and adoption relative to a technological benchmark, especially in longer-horizon execution environments.
+\end{abstract}
+
+\noindent\textit{Keywords:} generative AI; authority allocation; organizational design; platform dependence; recovery capability
+
+\noindent\textit{JEL Classification:} D23; L22; L86; O33
+
+\input{sections/01_intro}
+\input{sections/02_literature}
+\input{sections/03_model}
+\input{sections/04_baseline}
+\input{sections/05_pricing}
+\input{sections/06_capability}
+\input{sections/07_discussion}
+\input{sections/08_conclusion}
+
+\appendix
+\input{appendix/appendix_proofs}
+
+\printbibliography
+
+\end{document}
