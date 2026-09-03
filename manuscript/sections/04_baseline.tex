@@ -1,0 +1,76 @@
+\section{Authority Allocation and Retained Human Recovery Capability}
+\label{sec:baseline}
+
+This section derives the model's baseline organizational implications. I first show that the firm's problem has a unique cutoff structure: routine tasks are delegated to the external AI platform, while sufficiently exceptional tasks remain under human authority. I then show that the case against full automation can survive even when AI dominates human handling task by task in normal operations. The reason is intertemporal: authority today shapes retained recovery capability tomorrow.
+
+\subsection{The Optimal Cutoff Structure}
+\label{subsec:cutoff}
+
+The firm's conditional objective is given by \eqref{eq:PhiP}. The marginal benefit of increasing the cutoff $s$ is the normal-state gain from assigning the marginal task $s$ to AI rather than to humans, net of the marginal loss in future recovery capability (fallback capability). Because the former falls with task exceptionality while the latter rises as retained capability is depleted, the firm's problem admits a unique threshold.
+
+\begin{proposition}[Unique cutoff structure]
+\label{prop:cutoff}
+Conditional on adoption, $\Phi^P(s;\kappa,p)$ is strictly concave in $s$. Hence the firm has a unique optimal cutoff $s_P^\ast\in[0,1]$. If
+\[
+\Delta^P(0;\kappa,p)>\lambda \nu R \beta \rho'(H(0))
+\quad\text{and}\quad
+\Delta^P(1;\kappa,p)<\lambda \nu R \beta \rho'(H(1)),
+\]
+then the optimum is interior and characterized by
+\begin{equation}
+\label{eq:FOC-private-baseline}
+\Delta^P(s_P^\ast;\kappa,p)=\lambda \nu R \beta \rho'(H(s_P^\ast)).
+\end{equation}
+\end{proposition}
+
+The result follows from two monotonicities. First, the normal-state gain from delegating the marginal task to AI is decreasing in task exceptionality, since $\Delta^P(s;\kappa,p)$ falls with $s$. Second, the marginal value of retained human recovery capability rises as the firm automates more tasks, because a higher cutoff reduces $H(s)$ and therefore increases the marginal cost of further capability depletion. These two forces imply a unique crossing and hence a unique organizational cutoff. Appendix~\ref{app:proofs} provides the formal proof.
+
+Proposition~\ref{prop:cutoff} gives the model's basic organizational architecture. The left-hand side of \eqref{eq:FOC-private-baseline} is the period-1 gain from pushing one more marginal task toward AI. The right-hand side is the period-2 value of preserving the marginal unit of human recovery capability. The optimal organization equates these two forces.
+
+\subsection{Why Full Automation May Be Suboptimal}
+\label{subsec:no-full-automation}
+
+A static comparison would suggest that if AI outperforms human managers on every task in normal operations, the firm should automate everything. The next result shows why this logic fails in the present setting. When current authority allocation affects future recovery capability, full automation may be suboptimal even if AI dominates human handling task by task.
+
+\begin{proposition}[Why full automation may be suboptimal even when AI dominates task-by-task]
+\label{prop:no-full-automation}
+Suppose that, in normal operations,
+\[
+\Delta^P(z;\kappa,p)>0
+\qquad
+\text{for all } z\in[0,1].
+\]
+Then:
+
+\begin{enumerate}
+\item If
+\begin{equation}
+\label{eq:no-full-auto-boundary}
+\Delta^P(1;\kappa,p)<\lambda \nu R \beta \rho'(\bar H),
+\end{equation}
+full automation is suboptimal, i.e.
+\[
+s_P^\ast<1.
+\]
+
+\item If, in addition,
+\begin{equation}
+\label{eq:hybrid-boundary}
+\Delta^P(0;\kappa,p)>\lambda \nu R \beta \rho'(H(0)),
+\end{equation}
+then the unique optimum is hybrid:
+\[
+0<s_P^\ast<1.
+\]
+
+\item The sufficient condition in \eqref{eq:no-full-auto-boundary} becomes easier to satisfy as $\lambda$, $\nu$, $R$, or $\beta$ increase.
+\end{enumerate}
+\end{proposition}
+
+Part (1) rules out the interpretation that human authority survives only because AI performs poorly on sufficiently exceptional tasks. The assumption $\Delta^P(z;\kappa,p)>0$ excludes that possibility. Instead, the result follows because the marginal organizational cost of full automation is
+\[
+\lambda \nu R \beta \rho'(\bar H),
+\]
+which is increasing in contingency risk, platform-unusability risk, recovery value, and the rate at which authority retention preserves capability. Part (2) then identifies a parameter region in which the firm chooses a genuinely hybrid authority structure. Appendix~\ref{app:proofs} provides the formal proof.
+
+The economic content of Proposition~\ref{prop:no-full-automation} is therefore sharper than in a purely static automation model. Even when AI dominates task by task in normal operations, broad delegation can still be suboptimal because authority today determines how much internal recovery capability survives into abnormal states tomorrow.
