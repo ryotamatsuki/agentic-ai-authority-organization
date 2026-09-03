@@ -1,0 +1,136 @@
+\section{Model}
+\label{sec:model}
+
+This section presents a simple two-period model of authority allocation between an external agentic-AI platform and internal human managers. The model is intentionally minimal. Its purpose is not to describe every aspect of generative AI, but to isolate two organizationally central features. First, agentic AI performs \emph{multi-step execution} rather than one-shot prediction. Second, when such AI is supplied by an external platform, current delegation choices affect the firm's future internal recovery capability (fallback capability).
+
+\subsection{Normal Operations}
+\label{subsec:normal}
+
+A firm faces a unit mass of tasks indexed by $z\in[0,1]$. Higher $z$ means that a task is more exceptional, more tacit, and harder to verify. The firm chooses a cutoff $s\in[0,1]$: all tasks with $z\le s$ are assigned to an external AI platform, while tasks with $z>s$ remain under human authority.
+
+If task $z$ is assigned to AI, the platform must complete $n\ge 1$ sequential steps. Let the per-step success probability be
+\begin{equation}
+\label{eq:q}
+q(z;\kappa)=\kappa-\alpha z,
+\qquad 0<\kappa-\alpha<\kappa<1,
+\end{equation}
+where $\kappa$ measures AI capability and $\alpha>0$ captures the extent to which performance deteriorates with task exceptionality. Since all $n$ steps must succeed, the overall success probability is
+\begin{equation}
+\label{eq:Q}
+Q(z;\kappa)=q(z;\kappa)^n=(\kappa-\alpha z)^n.
+\end{equation}
+Equations \eqref{eq:q}--\eqref{eq:Q} provide a reduced-form representation of agentic AI. What matters is not a single prediction, but the probability of completing a sequence of actions without breakdown.
+
+A successfully completed task yields value $v>0$. If AI fails, the firm incurs loss $L>0$. In addition, access to the external AI platform requires a per-step payment $p>0$, so that the total usage cost is $pn$. Hence the expected payoff from assigning task $z$ to AI is
+\begin{equation}
+\label{eq:uA}
+u_A^P(z;\kappa,p)=v-pn-L\bigl(1-Q(z;\kappa)\bigr).
+\end{equation}
+
+If task $z$ remains under human authority, expected payoff is
+\begin{equation}
+\label{eq:uH}
+u_H=v-c_H-b,
+\end{equation}
+where $c_H>0$ is the operating cost of human handling and $b\ge 0$ is a reduced-form agency or bias cost.
+
+The private period-1 gain from assigning task $z$ to AI rather than to humans is therefore
+\begin{equation}
+\label{eq:DeltaP}
+\Delta^P(z;\kappa,p)
+\equiv
+u_A^P(z;\kappa,p)-u_H
+=
+c_H+b-pn-L+L(\kappa-\alpha z)^n.
+\end{equation}
+Because more exceptional tasks are harder for the AI platform, $\Delta^P(z;\kappa,p)$ is decreasing in $z$.
+
+\subsection{Contingencies and Retained Human Recovery Capability}
+\label{subsec:contingency}
+
+The organizational reason to retain human authority is not merely that AI may fail on a given task in normal operations. More importantly, heavy reliance on an external platform may erode the firm's internal \emph{recovery capability} (fallback capability), which becomes valuable when the platform cannot be fully relied upon.
+
+I interpret recovery capability as the firm's internally preserved ability to restore operations, override erroneous execution, and coordinate responses when externally supplied AI becomes unavailable or unreliable. To keep the model parsimonious, I represent this capability as an experience stock accumulated through retained human authority in period 1.
+
+Specifically, suppose that the firm's retained human recovery capability after period 1 is
+\begin{equation}
+\label{eq:H}
+H(s)=\bar H+\beta(1-s),
+\qquad \beta>0,
+\end{equation}
+where $\bar H>0$ is baseline capability and $\beta$ measures the amount of recovery-relevant experience preserved by leaving tasks under human authority. Since the mass of tasks retained by humans is $1-s$, \eqref{eq:H} may be interpreted as the aggregate stock of recovery-relevant organizational experience available in period 2.
+
+With probability $\lambda\in(0,1)$, period 2 features a contingency. Conditional on a contingency, the external AI platform remains usable with probability $1-\nu$ and becomes unavailable or unreliable with probability $\nu\in(0,1)$. If the platform remains usable, continuation value is independent of $s$ and can be ignored for the authority-allocation problem. If the platform is unavailable or unreliable, the firm must rely on retained internal recovery capability.
+
+Let
+\begin{equation}
+\label{eq:rho}
+\rho(H(s))
+\end{equation}
+denote the probability that the firm successfully recovers in that state. Assume that $\rho:\mathbb{R}_+\to[0,1]$ is twice continuously differentiable and satisfies
+\begin{equation}
+\label{eq:rho-props}
+\rho'(H)>0,
+\qquad
+\rho''(H)<0.
+\end{equation}
+If recovery succeeds, the firm obtains value $R>0$. Thus, up to an additive constant that does not depend on $s$, the continuation value relevant for the authority choice is
+\begin{equation}
+\label{eq:continuation}
+\lambda \nu R \rho(H(s)).
+\end{equation}
+
+This formulation makes the fallback channel more specific than in a generic resilience model. Human authority is valuable not only because humans perform some current tasks, but also because retained authority preserves the internal capability needed to recover when external AI cannot be used or trusted.
+
+\subsection{Private and Technological Objectives}
+\label{subsec:objectives}
+
+Let $F\ge 0$ denote the fixed cost of adopting and governing the external AI platform. This fixed cost may be interpreted broadly to include contracting, integration, compliance, and monitoring costs. Relative to the all-human benchmark $s=0$, the firm's private net surplus from choosing cutoff $s$ is
+\begin{equation}
+\label{eq:SP}
+S^P(s;\kappa,p,F)
+=
+\int_0^s \Delta^P(z;\kappa,p)\,dz
++
+\lambda \nu R \bigl[\rho(H(s))-\rho(H(0))\bigr]
+-
+F\,\mathbf{1}\{s>0\}.
+\end{equation}
+The indicator term makes clear that $F$ affects whether the platform is adopted at all, but not the internal authority margin conditional on adoption.
+
+Accordingly, conditional on adoption, the firm chooses $s$ to maximize
+\begin{equation}
+\label{eq:PhiP}
+\Phi^P(s;\kappa,p)
+=
+\int_0^s \Delta^P(z;\kappa,p)\,dz
++
+\lambda \nu R \bigl[\rho(H(s))-\rho(H(0))\bigr].
+\end{equation}
+The first term captures the normal-state gain from delegating a larger set of tasks to AI. The second term captures the loss in future recovery capability when human authority is reduced.
+
+For later comparison, I define a \emph{technological benchmark}. This benchmark does not solve a full social planner's problem. Instead, it asks how the firm would allocate authority if it faced the underlying technological resource cost of AI rather than the private platform price. Let $r\le p$ denote this underlying cost. Then the benchmark gain from assigning task $z$ to AI is
+\begin{equation}
+\label{eq:DeltaT}
+\Delta^T(z;\kappa,r)
+=
+c_H+b-rn-L+L(\kappa-\alpha z)^n,
+\end{equation}
+and the corresponding conditional objective is
+\begin{equation}
+\label{eq:PhiT}
+\Phi^T(s;\kappa,r)
+=
+\int_0^s \Delta^T(z;\kappa,r)\,dz
++
+\lambda \nu R \bigl[\rho(H(s))-\rho(H(0))\bigr].
+\end{equation}
+
+The distinction between \eqref{eq:PhiP} and \eqref{eq:PhiT} is central. The private problem is governed by the platform's actual access price $p$, whereas the technological benchmark is governed by the underlying resource cost $r$. This distinction allows the analysis to separate two conceptually different questions: whether AI is technologically efficient for the firm to use, and how external platform pricing distorts the firm's internal authority structure.
+
+Finally, adoption occurs if and only if
+\begin{equation}
+\label{eq:adoption}
+\max_{s\in[0,1]} S^P(s;\kappa,p,F)\ge 0.
+\end{equation}
+Conditional on adoption, however, the internal allocation of authority is determined by the maximization of $\Phi^P(s;\kappa,p)$.
